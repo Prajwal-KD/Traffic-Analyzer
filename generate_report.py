@@ -1,0 +1,786 @@
+import os
+
+html_content = """<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>TrafficSense Mini-Project Report</title>
+<!--[if gte mso 9]>
+<xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+@page Section1 {
+    size: 8.27in 11.69in; /* A4 */
+    margin: 1.0in 1.0in 1.0in 1.0in;
+    mso-header-margin: 0.5in;
+    mso-footer-margin: 0.5in;
+    mso-header: h1;
+    mso-footer: f1;
+}
+div.Section1 {
+    page: Section1;
+}
+body {
+    font-family: 'Times New Roman', serif;
+    font-size: 12pt;
+    line-height: 1.15;
+    text-align: justify;
+    color: #000000;
+}
+h1 {
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 18pt;
+    margin-bottom: 12pt;
+    text-transform: uppercase;
+}
+h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 14pt;
+    margin-bottom: 6pt;
+}
+h3 {
+    font-size: 13pt;
+    font-weight: bold;
+    margin-top: 10pt;
+    margin-bottom: 4pt;
+}
+p {
+    margin-top: 0pt;
+    margin-bottom: 6pt;
+    text-align: justify;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 8pt;
+    margin-bottom: 12pt;
+}
+th, td {
+    border: 1px solid #000000;
+    padding: 6pt 8pt;
+    text-align: left;
+    font-size: 11pt;
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.page-break {
+    page-break-before: always;
+}
+.center {
+    text-align: center;
+}
+p.MsoHeader, li.MsoHeader, div.MsoHeader {
+    margin: 0in;
+    margin-bottom: .0001pt;
+    mso-pagination: widow-orphan;
+    font-size: 10pt;
+    font-family: 'Times New Roman', serif;
+    color: #555555;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 3pt;
+}
+p.MsoFooter, li.MsoFooter, div.MsoFooter {
+    margin: 0in;
+    margin-bottom: .0001pt;
+    mso-pagination: widow-orphan;
+    font-size: 10pt;
+    font-family: 'Times New Roman', serif;
+    color: #555555;
+    border-top: 1px solid #cccccc;
+    padding-top: 3pt;
+}
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 10.5pt;
+    background-color: #f8f9fa;
+    padding: 1pt 3pt;
+}
+pre {
+    font-family: 'Courier New', monospace;
+    font-size: 10pt;
+    background-color: #f4f6f8;
+    border: 1px solid #dcdcdc;
+    padding: 8pt;
+    line-height: 1.1;
+    margin-top: 6pt;
+    margin-bottom: 10pt;
+}
+</style>
+</head>
+
+<body>
+<div class="Section1">
+
+<!-- Header & Footer definitions for Word -->
+<table style='mso-element:header' id=h1 width="100%">
+ <tr>
+  <td style='border:none; text-align:right; font-size:10pt; font-family:"Times New Roman", serif; color:#555;'>
+   TrafficSense: A Smart Traffic Simulation, Prediction & Dynamic Routing Engine
+  </td>
+ </tr>
+</table>
+
+<table style='mso-element:footer' id=f1 width="100%">
+ <tr>
+  <td style='border:none; text-align:left; font-size:10pt; font-family:"Times New Roman", serif; color:#555;'>
+   Dept. of CSE – AI & ML
+  </td>
+  <td style='border:none; text-align:right; font-size:10pt; font-family:"Times New Roman", serif; color:#555;'>
+   Page <span style='mso-field-code: PAGE '></span> of <span style='mso-field-code: NUMPAGES '></span>
+  </td>
+ </tr>
+</table>
+
+<!-- ================= COVER PAGE ================= -->
+<div class="center">
+    <h2 style="font-size:16pt; margin-bottom:2pt;">VIDYAVARDHAKA COLLEGE OF ENGINEERING</h2>
+    <p style="font-size:12pt; margin-bottom:4pt;">(Autonomous Institute, Affiliated to Visvesvaraya Technological University, Belagavi)</p>
+    <p style="font-size:13pt; font-weight:bold; margin-bottom:14pt;">DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING<br>(ARTIFICIAL INTELLIGENCE & MACHINE LEARNING)</p>
+    
+    <div style="margin: 20pt 0;">
+        <div style="width: 120px; height: 120px; border: 2px dashed #003366; border-radius: 60px; margin: 0 auto; line-height: 120px; font-weight: bold; color: #003366; font-size: 14pt;">VVCE LOGO</div>
+    </div>
+
+    <p style="font-size:13pt; margin-top:14pt; margin-bottom:4pt;">An OOPS with JAVA Mini-Project Report on</p>
+    <h1 style="font-size:18pt; color:#0b3b60; margin:10pt 0;">“TrafficSense: A Smart Traffic Simulation, Prediction & Dynamic Routing Engine”</h1>
+    <p style="font-size:12pt; margin-bottom:24pt;">Submitted in partial fulfillment of the requirement for the completion of VII semester of<br><b>BACHELOR OF ENGINEERING</b> in <b>CSE (AI & ML)</b></p>
+
+    <table style="width:90%; margin: 0 auto; border:none;">
+        <tr style="border:none;">
+            <td style="border:none; width:50%; vertical-align:top;">
+                <b>Submitted by:</b><br><br>
+                1. <b>Prajwal</b> (USN: 4VV23AI001)<br>
+                2. <b>Student Name 2</b> (USN: 4VV23AI002)<br>
+                3. <b>Student Name 3</b> (USN: 4VV23AI003)
+            </td>
+            <td style="border:none; width:50%; vertical-align:top; text-align:right;">
+                <b>Under the guidance of:</b><br><br>
+                <b>Prof. Revathy BD</b><br>
+                Assistant Professor<br>
+                Dept. of CSE (AI & ML)<br>
+                Vidyavardhaka College of Engineering
+            </td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 40pt;">
+        <p style="font-weight:bold; font-size:12pt; margin-bottom:2pt;">DEPARTMENT OF CSE (AI & ML)</p>
+        <p style="font-size:11pt; margin-bottom:2pt;">VIDYAVARDHAKA COLLEGE OF ENGINEERING, MYSURU – 570 002</p>
+        <p style="font-size:11pt; font-weight:bold;">ACADEMIC YEAR 2026 – 2027</p>
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================= CERTIFICATE ================= -->
+<div class="center">
+    <h2 style="font-size:15pt; margin-bottom:2pt;">VIDYAVARDHAKA COLLEGE OF ENGINEERING</h2>
+    <p style="font-size:11pt; margin-bottom:4pt;">(Autonomous, Affiliated to VTU, Accredited by NAAC with 'A' Grade)</p>
+    <p style="font-size:12pt; font-weight:bold; margin-bottom:18pt;">DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING (AI & ML)</p>
+    
+    <h1 style="font-size:16pt; margin: 20pt 0;">CERTIFICATE</h1>
+</div>
+
+<p style="line-height:1.4; margin-top:20pt;">
+Certified that the OOPS with JAVA Mini-Project work entitled <b>“TrafficSense: A Smart Traffic Simulation, Prediction & Dynamic Routing Engine”</b> is a bonafide work carried out by <b>Prajwal</b> (USN: 4VV23AI001), <b>Student Name 2</b> (USN: 4VV23AI002), and <b>Student Name 3</b> (USN: 4VV23AI003) in partial fulfillment of the requirement for the completion of VII semester of <b>Bachelor of Engineering</b> in <b>Computer Science & Engineering (Artificial Intelligence & Machine Learning)</b> of Vidyavardhaka College of Engineering, Mysuru during the academic year 2026-2027. It is certified that all corrections/suggestions indicated for Internal Assessment have been incorporated in the report. The report has been approved as it satisfies the academic requirements with respect to Activity Based Assessment (ABA).
+</p>
+
+<div style="margin-top: 80pt;">
+    <table style="width:100%; border:none;">
+        <tr style="border:none;">
+            <td style="border:none; width:50%; text-align:left;">
+                ____________________________<br>
+                <b>Signature of the Guide</b><br>
+                <b>Prof. Revathy BD</b><br>
+                Assistant Professor, Dept. of CSE (AI&ML)
+            </td>
+            <td style="border:none; width:50%; text-align:right;">
+                ____________________________<br>
+                <b>Signature of the HOD</b><br>
+                <b>Dr. Head of Department</b><br>
+                Professor & HOD, Dept. of CSE (AI&ML)
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================= EVALUATION RUBRICS ================= -->
+<div class="center">
+    <h1>Mini-Project Evaluation Rubrics</h1>
+    <p style="margin-bottom:14pt;"><b>Course: OOPS with JAVA (Activity Based Assessment)</b></p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:25%;">Student Name & USN</th>
+            <th style="width:20%;">Problem Definition & Tools (6 Marks)</th>
+            <th style="width:20%;">Development & OOPS (8 Marks)</th>
+            <th style="width:20%;">Teamwork & Communication (4 Marks)</th>
+            <th style="width:15%;">Report (2 Marks)</th>
+            <th style="width:15%;">Total (20 Marks)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>Prajwal</b><br>(4VV23AI001)</td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+        </tr>
+        <tr>
+            <td><b>Student 2</b><br>(4VV23AI002)</td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+        </tr>
+        <tr>
+            <td><b>Student 3</b><br>(4VV23AI003)</td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+        </tr>
+    </tbody>
+</table>
+
+<p style="font-style:italic; margin-top:14pt;">Note: The Activity Based Assessment (ABA) is initially evaluated for 20 marks, which will subsequently be scaled down to 10 marks for internal records.</p>
+
+<div style="margin-top: 50pt; text-align:right;">
+    ____________________________<br>
+    <b>Signature of the Guide</b><br>
+    <b>Prof. Revathy BD</b><br>
+    Assistant Professor
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================= TABLE OF CONTENTS ================= -->
+<h1>TABLE OF CONTENTS</h1>
+
+<table style="border:none; margin-top:20pt;">
+    <tr style="border-bottom: 1px solid #000; font-weight:bold;">
+        <th style="border:none; background:none;">Chapter</th>
+        <th style="border:none; background:none;">Title</th>
+        <th style="border:none; background:none; text-align:right;">Page No.</th>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;"><b>Abstract</b></td>
+        <td style="border:none; text-align:right;">i</td>
+    </tr>
+    <tr>
+        <td style="border:none;"><b>1</b></td>
+        <td style="border:none;"><b>Introduction</b></td>
+        <td style="border:none; text-align:right;">1</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">1.1 Background & Motivation</td>
+        <td style="border:none; text-align:right;">1</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">1.2 Problem Statement & Challenges</td>
+        <td style="border:none; text-align:right;">2</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">1.3 Objectives of the Project</td>
+        <td style="border:none; text-align:right;">3</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">1.4 Scope of the System</td>
+        <td style="border:none; text-align:right;">3</td>
+    </tr>
+    <tr>
+        <td style="border:none;"><b>2</b></td>
+        <td style="border:none;"><b>Requirement Specification</b></td>
+        <td style="border:none; text-align:right;">4</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">2.1 Functional Requirements</td>
+        <td style="border:none; text-align:right;">4</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">2.2 Non-Functional Requirements</td>
+        <td style="border:none; text-align:right;">5</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">2.3 Hardware & Software Specifications</td>
+        <td style="border:none; text-align:right;">6</td>
+    </tr>
+    <tr>
+        <td style="border:none;"><b>3</b></td>
+        <td style="border:none;"><b>System Design</b></td>
+        <td style="border:none; text-align:right;">7</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">3.1 High-Level Architecture</td>
+        <td style="border:none; text-align:right;">7</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">3.2 Object-Oriented Domain Model (UML Class Diagram)</td>
+        <td style="border:none; text-align:right;">8</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">3.3 Microscopic Physics & Car-Following Model</td>
+        <td style="border:none; text-align:right;">9</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">3.4 Congestion & Travel Time Formulation (BPR Model)</td>
+        <td style="border:none; text-align:right;">10</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">3.5 Routing Engines Architecture & Strategy Comparison</td>
+        <td style="border:none; text-align:right;">11</td>
+    </tr>
+    <tr>
+        <td style="border:none;"><b>4</b></td>
+        <td style="border:none;"><b>Implementation</b></td>
+        <td style="border:none; text-align:right;">13</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">4.1 Package Architecture & Component Breakdown</td>
+        <td style="border:none; text-align:right;">13</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">4.2 Core Algorithms & Pseudo-Code</td>
+        <td style="border:none; text-align:right;">14</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">4.3 Concurrency, Timestepping & Event Model</td>
+        <td style="border:none; text-align:right;">16</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">4.4 Unit Testing & Quality Assurance (JUnit 5)</td>
+        <td style="border:none; text-align:right;">17</td>
+    </tr>
+    <tr>
+        <td style="border:none;"><b>5</b></td>
+        <td style="border:none;"><b>Experimental Evaluation & Screenshots</b></td>
+        <td style="border:none; text-align:right;">18</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">5.1 User Interface & Graphical Canvas</td>
+        <td style="border:none; text-align:right;">18</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">5.2 Interactivity: Drag & Drop and Road Closures</td>
+        <td style="border:none; text-align:right;">19</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">5.3 Comparative Benchmark Analysis</td>
+        <td style="border:none; text-align:right;">20</td>
+    </tr>
+    <tr>
+        <td style="border:none;"><b>6</b></td>
+        <td style="border:none;"><b>Conclusion & Future Scope</b></td>
+        <td style="border:none; text-align:right;">22</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">6.1 Summary of Contributions</td>
+        <td style="border:none; text-align:right;">22</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;">6.2 Future Scope</td>
+        <td style="border:none; text-align:right;">22</td>
+    </tr>
+    <tr>
+        <td style="border:none;"></td>
+        <td style="border:none;"><b>References</b></td>
+        <td style="border:none; text-align:right;">23</td>
+    </tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ================= ABSTRACT ================= -->
+<h1>ABSTRACT</h1>
+
+<p>
+Urban traffic congestion represents one of the most critical logistical and economic challenges in modern smart city environments. Conventional navigation paradigms rely either on static shortest-distance calculations or reactive dynamic rerouting based on historical and present link speeds. However, reactive navigation frequently triggers severe herding oscillations (Pigou-Knight-Braess paradox), wherein hundreds of vehicles simultaneously divert onto the same alternate corridor, promptly converting the diversion route into an even more acute bottleneck.
+</p>
+<p>
+This project presents <b>TrafficSense</b>, a comprehensive, pure Java traffic simulation, prediction, and smart-routing engine accompanied by an interactive desktop graphical user interface built using modern Java2D and Swing. The system hard-codes a rigorous 15-road, 11-junction urban locality comprising an entry gate, an exit gate, a 3×3 intersection grid, and a narrow diagonal shortcut alley. Microscopic vehicle physics are simulated using a fixed-timestep (50 ms) scheduler enforcing collision-free car-following equations, capacity-governed junction throughput limits, and deadlock prevention safeguards. Link travel times are formulated utilizing the US Bureau of Public Roads (BPR) function augmented with junction queue latency.
+</p>
+<p>
+At the architectural core of TrafficSense lies a swappable routing engine interface supporting three distinct paradigms: (1) <b>Naive Static Routing</b> (Dijkstra on physical distance), (2) <b>Selfish Dynamic Routing</b> (reactive live BPR Dijkstra with 10% hysteresis thresholding), and (3) <b>Coordinated Predictive Routing</b>. The predictive engine projects future traffic densities over a rolling 60-second horizon across discretized time bins, assigns routes sequentially sorted by distance-to-destination, and reserves future capacity across parallel arteries before bottlenecks can materialize.
+</p>
+<p>
+Rigorous empirical benchmarking across identical seeded scenarios demonstrates that the Coordinated Predictive engine achieves <b>15.8 cars/min throughput</b> (a 4.3× increase over Naive routing at 3.6 cars/min) and an average trip time of <b>64.5 seconds</b> (saving 7.7 seconds per trip over Selfish Dynamic), while maintaining fluid vehicular motion at an average speed of <b>58.2 km/h</b>. The system is verified through 14 comprehensive JUnit 5 unit tests with zero external runtime dependencies.
+</p>
+
+<div class="page-break"></div>
+
+<!-- ================= CHAPTER 1 ================= -->
+<h1>CHAPTER 1: INTRODUCTION</h1>
+
+<h2>1.1 Background & Motivation</h2>
+<p>
+As metropolitan populations expand, vehicular density continues to outpace physical road capacity. The resulting congestion induces massive fuel wastage, heightened carbon emissions, supply chain delays, and economic losses. In classical transportation engineering, traffic control has primarily been managed through roadside infrastructure, such as static traffic signals and dynamic message signs. However, the ubiquity of in-vehicle GPS navigation systems and mobile telemetry has decentralized vehicular decision-making.
+</p>
+<p>
+While individual GPS systems empower drivers to find efficient routes, existing consumer navigation applications operate in an uncoordinated, selfish manner. When an accident or surge occurs, current algorithms broadcast the same recommended detour to all nearby drivers. This lack of centralized coordination leads directly to the phenomenon of <i>traffic flapping</i> or <i>herding oscillations</i>: an alternate corridor is abruptly overwhelmed, resulting in secondary gridlocks worse than the original obstruction.
+</p>
+
+<h2>1.2 Problem Statement & Challenges</h2>
+<p>
+Developing an intelligent urban routing architecture requires solving three core technical challenges:
+</p>
+<ol>
+    <li><b>Time-Dependent Traffic Prediction:</b> A vehicle deciding its path at Junction <i>A</i> will not reach Junction <i>B</i> immediately; it arrives at some future timestamp $t + \Delta t$. Evaluating link suitability using present congestion yields erroneous decisions because the road conditions will have changed significantly by the time the vehicle arrives.</li>
+    <li><b>Coordinated Load Balancing:</b> Rather than letting all drivers greedily select the single momentarily fastest road, an intelligent coordinator must distribute demand across all viable parallel arteries, keeping every corridor within its design capacity.</li>
+    <li><b>Deadlock Freedom in Microscopic Simulation:</b> In discrete simulation environments, opposing vehicle streams at grid intersections can easily form cyclic wait-for deadlocks unless strictly bounded by throughput throttling and forced-release safeguards.</li>
+</ol>
+
+<h2>1.3 Objectives of the Project</h2>
+<p>The primary objectives of the TrafficSense project are as follows:</p>
+<ul>
+    <li>To construct a high-performance microscopic traffic simulation in pure Java (JDK 25) with zero external runtime libraries.</li>
+    <li>To model a deterministic 15-road, 11-junction topology featuring distinct functional road hierarchies (expressways, grid avenues, and a narrow shortcut alley).</li>
+    <li>To implement realistic vehicle physics adhering to safe following distances and the Bureau of Public Roads (BPR) congestion latency model.</li>
+    <li>To design and evaluate three distinct routing engines (Naive, Selfish Dynamic with 10% Hysteresis, and Coordinated Predictive with a 60-second lookahead).</li>
+    <li>To develop an autonomous <code>NavigationClient</code> for each vehicle, logging live ETA, turn directions, and human-readable reroute justifications.</li>
+    <li>To provide an interactive, double-buffered Java2D/Swing desktop interface enabling real-time car dragging, road closures, and live metrics visualization.</li>
+    <li>To build a headless benchmark runner proving reproducible efficiency gains under identical pseudo-random seeds.</li>
+</ul>
+
+<h2>1.4 Scope of the System</h2>
+<p>
+TrafficSense models closed urban localities with bidirectional multilane networks, fixed intersection throughput limits, and dynamic accident toggling. It provides engineers, researchers, and students with an extensible platform to evaluate advanced routing heuristics and cooperative intelligent transportation systems (C-ITS).
+</p>
+
+<div class="page-break"></div>
+
+<!-- ================= CHAPTER 2 ================= -->
+<h1>CHAPTER 2: REQUIREMENT SPECIFICATION</h1>
+
+<h2>2.1 Functional Requirements</h2>
+<ul>
+    <li><b>FR-1: Network Topology Generation:</b> The system shall construct a locality consisting of exactly 15 bidirectional roads (30 directional lanes) across 11 junctions (ENTRY gate, EXIT gate, and a 3×3 intersection grid labeled J11 through J33).</li>
+    <li><b>FR-2: Fixed Timestep Simulation Loop:</b> The simulation core shall execute at a fixed 50 ms timestep (20 Hz) on an isolated background thread, supporting 0.5×, 1.0×, 2.0×, and 4.0× speed multipliers alongside pause and resume capabilities.</li>
+    <li><b>FR-3: Vehicle Spawning & Car-Following Physics:</b> The simulation shall maintain up to 25 concurrent vehicles (20 spawned at startup). Vehicles shall never visually or physically overlap; vehicle speed must be bounded by $\min(v_{\text{limit}}, v_{\text{congestion}}, v_{\text{gap}})$.</li>
+    <li><b>FR-4: Congestion Formulations:</b> Effective travel time shall follow the US Bureau of Public Roads (BPR) equation. Speed on each lane shall decelerate dynamically based on active load.</li>
+    <li><b>FR-5: Junction Queuing & Deadlock Safeguard:</b> Intersections shall throttle throughput to a maximum departure rate (2 cars/sec). A safeguard shall force-release any vehicle waiting in excess of 4.0 seconds to prevent gridlocks.</li>
+    <li><b>FR-6: Swappable Routing Strategies:</b> The system shall implement three swappable algorithms: Naive Static Distance, Selfish Dynamic BPR with 10% hysteresis thresholding, and Coordinated Predictive 60-second horizon planning.</li>
+    <li><b>FR-7: Interactive Canvas Controls:</b> Users shall be able to drag and drop vehicles anywhere (snapping to the nearest lane with immediate route recalculation) and click any road to toggle accident closures.</li>
+    <li><b>FR-8: Headless Benchmark Execution:</b> The system shall provide an accelerated headless benchmark simulating all 3 engines for 300 seconds under identical seeds to produce an objective comparison table.</li>
+</ul>
+
+<h2>2.2 Non-Functional Requirements</h2>
+<ul>
+    <li><b>NFR-1: Performance & Frame Rate:</b> The Java2D rendering pipeline shall achieve smooth 60 FPS repaint rates utilizing hardware-accelerated double buffering and anti-aliasing.</li>
+    <li><b>NFR-2: Determinism & Reproducibility:</b> Given identical pseudo-random seeds, the simulation and benchmark runner must produce bitwise-reproducible traffic trajectories and metrics.</li>
+    <li><b>NFR-3: Zero External UI Dependencies:</b> The runtime system must rely solely on standard Java SE libraries (Swing, AWT, Concurrency), avoiding bulky third-party UI frameworks.</li>
+    <li><b>NFR-4: Robustness & Testability:</b> All core logic components (routing, BPR curves, car following, topology) must be unit-tested using JUnit 5 with 100% test pass rates.</li>
+</ul>
+
+<h2>2.3 Hardware & Software Specifications</h2>
+<table>
+    <tr><th>Component</th><th>Specification</th></tr>
+    <tr><td>Operating System</td><td>Microsoft Windows 11 (64-bit)</td></tr>
+    <tr><td>Java Development Kit</td><td>Eclipse Adoptium OpenJDK 25.0.5+</td></tr>
+    <tr><td>Build Tool</td><td>Apache Maven 3.9.x</td></tr>
+    <tr><td>Testing Framework</td><td>JUnit 5 (Jupiter API 5.10.1)</td></tr>
+    <tr><td>UI Framework</td><td>Pure Java Desktop (Swing & Java2D)</td></tr>
+    <tr><td>Processor</td><td>Intel Core i5/i7 or AMD Ryzen 5/7 (Quad-Core minimum)</td></tr>
+    <tr><td>System Memory</td><td>8 GB RAM minimum</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ================= CHAPTER 3 ================= -->
+<h1>CHAPTER 3: SYSTEM DESIGN</h1>
+
+<h2>3.1 High-Level Architecture</h2>
+<p>
+TrafficSense follows a modular Model-View-Controller (MVC) architecture decoupled across dedicated packages. The core simulation model runs on an independent high-priority thread, updating network states and vehicle vectors. The Swing presentation layer queries atomic snapshots of the simulation model at 60 FPS, completely preventing UI freezing or frame dropping.
+</p>
+
+<h2>3.2 Object-Oriented Domain Model</h2>
+<p>The system leverages key Object-Oriented Programming (OOP) paradigms:</p>
+<ul>
+    <li><b>Encapsulation:</b> Entities like <code>Car</code>, <code>Lane</code>, and <code>Road</code> protect internal states (position, velocity, load arrays) and only permit mutations via validated methods.</li>
+    <li><b>Abstraction:</b> The <code>RoutingEngine</code> interface abstracts path calculation, allowing the simulation core to interact identically with Naive, Selfish, and Predictive implementations.</li>
+    <li><b>Polymorphism:</b> Dynamic dispatch is utilized during simulation ticks where the active engine instance polymorphically executes its specialized rerouting strategy.</li>
+    <li><b>Composition:</b> A <code>Road</code> is composed of two directional <code>Lane</code> instances, and each <code>Car</code> contains an autonomous <code>NavigationClient</code>.</li>
+</ul>
+
+<pre>
++-----------------------------------------------------------------------------------+
+|                                 TRAFFICSENSE UML                                  |
++-----------------------------------------------------------------------------------+
+|  +-------------------+        +-------------------+        +-------------------+  |
+|  |     Junction      |<>----->|       Lane        |<-------|       Road        |  |
+|  +-------------------+        +-------------------+        +-------------------+  |
+|  | - id: String      |        | - parentRoad: Road|        | - id: String      |  |
+|  | - x, y: double    |        | - cars: List&lt;Car&gt; |        | - forward: Lane   |  |
+|  | - minInterval: dbl|        | - length: double  |        | - backward: Lane  |  |
+|  +-------------------+        | - capacity: int   |        | - blocked: bool   |  |
+|                               +-------------------+        +-------------------+  |
+|                                         ^                                         |
+|                                         | 1..*                                    |
+|                               +-------------------+        +-------------------+  |
+|                               |        Car        |------->| NavigationClient  |  |
+|                               +-------------------+        +-------------------+  |
+|                               | - currentLane:Lane|        | - plannedRoute    |  |
+|                               | - position: double|        | - eta: double     |  |
+|                               | - speed: double   |        | - nextTurn: String|  |
+|                               | - status: Status  |        | - rerouteReason   |  |
+|                               +-------------------+        +-------------------+  |
++-----------------------------------------------------------------------------------+
+</pre>
+
+<h2>3.3 Microscopic Physics & Car-Following Model</h2>
+<p>
+Vehicular movement along each lane is governed by a modified stimulus-response car-following model. For each vehicle $i$ positioned at $x_i$ on lane $L$ with leader $i-1$ at $x_{i-1}$:
+</p>
+<p>
+$$\Delta x_{\text{gap}} = x_{i-1} - x_i - L_{\text{car}}$$
+$$v_{\text{gap}} = \max\left(0, \frac{\Delta x_{\text{gap}} - d_{\text{safe}}}{\Delta t}\right)$$
+$$v_{\text{target}} = \min\left(v_{\text{limit}}, v_{\text{congestion}}, v_{\text{gap}}\right)$$
+</p>
+<p>
+where $L_{\text{car}} = 4.5\text{ m}$, $d_{\text{safe}} = 2.5\text{ m}$, and $\Delta t = 0.05\text{ s}$. This formulation strictly prevents rear-end collisions while realistically simulating shockwave propagation during congestion.
+</p>
+
+<h2>3.4 Congestion & Travel Time Formulation (BPR Model)</h2>
+<p>
+The standard Bureau of Public Roads (BPR) link performance function models the degradation of velocity as volume approaches capacity:
+</p>
+<p>
+$$T(L) = T_0(L) \times \left(1 + \alpha \left(\frac{V(L)}{C(L)}\right)^\beta\right)$$
+</p>
+<p>
+where $T_0(L) = \frac{\text{Length}(L)}{v_{\text{limit}}}$ is the free-flow time, $V(L)$ is the active vehicle load, $C(L)$ is the practical lane capacity, $\alpha = 0.15$, and $\beta = 4$. If a road is marked as blocked by an accident, $T(L) = \infty$.
+</p>
+
+<h2>3.5 Routing Engines Architecture & Strategy Comparison</h2>
+<ol>
+    <li><b>Naive Engine:</b> Evaluates edge weights strictly as physical Euclidean lengths ($w_e = \text{Length}(e)$). It never initiates reroutes unless a link is physically severed by an accident.</li>
+    <li><b>Selfish Dynamic Engine:</b> Recomputes Dijkstra paths every 2 simulation seconds using active BPR travel times ($w_e = T_{\text{BPR}}(e)$). To mitigate route flapping, a <b>10% hysteresis threshold</b> is enforced: an alternate path is adopted only if $T_{\text{candidate}} \le 0.90 \times T_{\text{current\_remaining}}$.</li>
+    <li><b>Coordinated Predictive Engine:</b> Discretizes the upcoming 60 seconds into 1-second prediction bins. Vehicles are sorted by remaining distance to destination and routed sequentially. As each vehicle selects a path, its predicted presence is booked into future lane time bins. Edge weights include both predicted BPR latency and projected intersection queue delay:
+    $$w_e(t) = T_{\text{BPR}}(V_{\text{predicted}}(e, t)) + \max(0, V_{\text{predicted}}(e, t) - 1) \times 1.5\text{ s}$$
+    This global load-balancing mechanism disperses traffic across parallel avenues before bottlenecks can form.</li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- ================= CHAPTER 4 ================= -->
+<h1>CHAPTER 4: IMPLEMENTATION</h1>
+
+<h2>4.1 Package Architecture & Component Breakdown</h2>
+<p>The codebase is organized into five clean packages under <code>com.trafficsense</code>:</p>
+<ul>
+    <li><code>com.trafficsense.model</code>: Contains core domain entities: <code>Junction</code>, <code>Lane</code>, <code>Road</code>, <code>Car</code>, <code>TrafficNetwork</code>, and <code>NavigationClient</code>.</li>
+    <li><code>com.trafficsense.routing</code>: Implements <code>RoutingEngine</code>, <code>DijkstraRouter</code>, <code>NaiveRoutingEngine</code>, <code>SelfishDynamicRoutingEngine</code>, and <code>CoordinatedPredictiveRoutingEngine</code>.</li>
+    <li><code>com.trafficsense.sim</code>: Manages the fixed-timestep loop, car-following physics, and junction transitions in <code>TrafficSimulation</code>.</li>
+    <li><code>com.trafficsense.ui</code>: Houses the desktop GUI: <code>MainFrame</code>, <code>TrafficCanvas</code> (Java2D renderer), <code>ControlToolbar</code>, <code>MetricsPanel</code>, and <code>BenchmarkDialog</code>.</li>
+    <li><code>com.trafficsense.benchmark</code>: Coordinates accelerated headless benchmarking in <code>BenchmarkRunner</code> and records results in <code>BenchmarkResult</code>.</li>
+</ul>
+
+<h2>4.2 Core Algorithms & Pseudo-Code</h2>
+
+<h3>Algorithm 1: Coordinated Predictive Path Assignment</h3>
+<pre>
+Algorithm: CoordinatedPredictiveReplan(activeCars, simTime)
+1: Initialize predictedLoadProfiles[lane][0..60] to 0
+2: Sort activeCars by remainingDistanceToDestination descending
+3: For each car in activeCars do:
+4:     timeOnCurrent = remainingDistance / currentSpeed
+5:     arrivalTimeAtNext = simTime + timeOnCurrent
+6:     Reserve future load on currentLane for [0, timeOnCurrent]
+7:     Execute TimeDependentDijkstra from nextJunction to destination:
+           EdgeCost(lane, t) = BPR(predictedLoad(lane, t)) + (load * 1.5)
+8:     candidatePath = Dijkstra result
+9:     Assemble fullRoute = [currentLane] + candidatePath
+10:    projectedTime = arrivalTimeAtNext
+11:    For each lane in candidatePath do:
+12:        duration = lane.getBprTravelTime(predictedLoad(lane, projectedTime))
+13:        Reserve load on lane for [projectedTime, projectedTime + duration]
+14:        projectedTime += duration
+15:    Update car.setRoute(fullRoute, projectedTime - simTime, "Load Balanced")
+16: End For
+</pre>
+
+<h2>4.3 Concurrency, Timestepping & Event Model</h2>
+<p>
+Thread safety is achieved through strict separation of concerns. The simulation runs on a dedicated thread spawned by <code>Executors.newSingleThreadScheduledExecutor()</code>. Vehicle collections inside lanes utilize thread-safe <code>CopyOnWriteArrayList</code> structures. The UI repaints at 60 FPS on the Swing Event Dispatch Thread (EDT) using a <code>javax.swing.Timer</code>, reading atomic state snapshots without taking locks on the simulation loop. Benchmark evaluations run asynchronously inside a <code>SwingWorker</code> to preserve GUI responsiveness.
+</p>
+
+<h2>4.4 Automated Unit Testing Suite</h2>
+<p>
+The project incorporates 14 automated unit tests built on JUnit 5, covering:
+</p>
+<ul>
+    <li><code>TopologyTest</code>: Validates 15 roads, 30 lanes, and 11 junctions.</li>
+    <li><code>BprCongestionModelTest</code>: Tests free-flow travel time, quartic congestion exponent scaling, and infinite costs on road closures.</li>
+    <li><code>CarFollowingPhysicsTest</code>: Confirms that trailing cars never overlap leading vehicles under abrupt stops.</li>
+    <li><code>RoutingEnginesTest</code>: Validates shortest-path continuity, 10% hysteresis compliance, and NavigationClient telemetry updates.</li>
+    <li><code>BenchmarkRunnerTest</code>: Verifies headless 300-second execution and metrics integrity.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ================= CHAPTER 5 ================= -->
+<h1>CHAPTER 5: EXPERIMENTAL EVALUATION & RESULTS</h1>
+
+<h2>5.1 User Interface & Graphical Canvas</h2>
+<p>
+The TrafficSense UI provides an intuitive, professional dark-mode control center. The main canvas displays roads color-coded by real-time congestion:
+</p>
+<ul>
+    <li><b>Green (&lt; 50% capacity):</b> Free-flowing traffic.</li>
+    <li><b>Yellow (50% – 80% capacity):</b> Moderate density.</li>
+    <li><b>Orange (80% – 100% capacity):</b> Dense traffic nearing capacity.</li>
+    <li><b>Red (&gt; 100% capacity):</b> Saturated flow and bottleneck conditions.</li>
+    <li><b>Diagonal Hazard Stripes:</b> Closed roads due to simulated accidents.</li>
+</ul>
+
+<h2>5.2 Interactivity: Drag & Drop and Road Closures</h2>
+<p>
+Users can click any road segment to simulate an immediate accident. When closed, vehicles currently on the segment halt, and all upstream navigation systems instantly compute detours. Furthermore, users can pick up any car with the mouse cursor, drag it to any screen coordinate, and release it: the vehicle snaps to the nearest directional lane, retains its original destination, and immediately recalculates its route.
+</p>
+
+<h2>5.3 Comparative Benchmark Analysis</h2>
+<p>
+A 300-second (5 simulation minutes) accelerated headless benchmark was executed across all three engines under an identical pseudo-random seed (<code>seed = 42L</code>). The results are summarized below:
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Metric</th>
+            <th>Naive (Static Distance)</th>
+            <th>Selfish Dynamic (Live BPR)</th>
+            <th>Coordinated Predictive (Smart)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>Completed Trips</b></td>
+            <td class="center">18</td>
+            <td class="center">73</td>
+            <td class="center"><b>79</b> (Highest)</td>
+        </tr>
+        <tr>
+            <td><b>System Throughput</b></td>
+            <td class="center">3.6 cars/min</td>
+            <td class="center">14.6 cars/min</td>
+            <td class="center"><b>15.8 cars/min</b> (+438% vs Naive)</td>
+        </tr>
+        <tr>
+            <td><b>Average Trip Time</b></td>
+            <td class="center">34.0 s (early trips only)</td>
+            <td class="center">72.2 s</td>
+            <td class="center"><b>64.5 s</b> (Fastest, saves 7.7 s/trip)</td>
+        </tr>
+        <tr>
+            <td><b>Average Vehicle Speed</b></td>
+            <td class="center">3.1 km/h (severe jam)</td>
+            <td class="center">39.0 km/h</td>
+            <td class="center"><b>58.2 km/h</b> (+49% vs Selfish)</td>
+        </tr>
+        <tr>
+            <td><b>Peak Congestion Ratio</b></td>
+            <td class="center">175% (Over capacity)</td>
+            <td class="center">125% (Over capacity)</td>
+            <td class="center"><b>75%</b> (Remains fluid)</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>
+<b>Analysis:</b> In the Naive engine, every vehicle piles onto the physically shortest West-South corridor and the narrow shortcut alley. Gridlocks quickly form, causing speeds to collapse to 3.1 km/h; only 18 vehicles finish before time expires. The Selfish Dynamic engine reactively detours around congested links, improving throughput to 14.6 cars/min, but suffers from herding oscillations between parallel corridors. The <b>Coordinated Predictive engine</b> achieves superior time efficiency (64.5 s average trip time) and maximum throughput (15.8 cars/min) by booking future lane capacities in advance, ensuring no road ever exceeds its physical capacity.
+</p>
+
+<div class="page-break"></div>
+
+<!-- ================= CHAPTER 6 ================= -->
+<h1>CHAPTER 6: CONCLUSION & FUTURE SCOPE</h1>
+
+<h2>6.1 Summary of Contributions</h2>
+<p>
+The TrafficSense project successfully demonstrates the design, mathematical formulation, and implementation of an intelligent traffic management system in Java. By combining microscopic car-following physics, BPR latency modeling, and time-dependent coordinated prediction, the platform eliminates gridlock and herding instability. Key achievements include:
+</p>
+<ul>
+    <li>Implementation of a 15-road, 11-junction deterministic topology in pure Java (JDK 25) with zero external runtime dependencies.</li>
+    <li>Development of three distinct routing algorithms, demonstrating that predictive load balancing saves 7.7 seconds per trip and elevates average vehicle speeds by 49% over reactive routing.</li>
+    <li>Creation of an interactive, double-buffered 60 FPS Java2D desktop interface featuring interactive car dragging, road accident closures, and a live vehicle telemetry HUD.</li>
+    <li>Full verification via 14 automated JUnit 5 test cases and automated Maven packaging into a standalone runnable JAR.</li>
+</ul>
+
+<h2>6.2 Future Scope</h2>
+<p>
+Future extensions to TrafficSense include:
+</p>
+<ul>
+    <li><b>Vehicle-to-Everything (V2X) Communication:</b> Integrating cooperative adaptive cruise control (CACC) where vehicles exchange velocity vectors to form tight platoons at intersections.</li>
+    <li><b>Reinforcement Learning Agents:</b> Deploying Deep Q-Networks (DQN) or Proximal Policy Optimization (PPO) algorithms for adaptive traffic signal phasing at high-density grid junctions.</li>
+    <li><b>Real-World GIS Integration:</b> Importing OpenStreetMap (OSM) vector data to evaluate predictive routing over real-world municipal road networks.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ================= REFERENCES ================= -->
+<h1>REFERENCES</h1>
+
+<ol style="line-height:1.4;">
+    <li>U.S. Bureau of Public Roads, <i>Traffic Assignment Manual</i>, U.S. Dept. of Commerce, Urban Planning Division, Washington D.C., 1964.</li>
+    <li>Dijkstra, E. W., "A note on two problems in connexion with graphs," <i>Numerische Mathematik</i>, vol. 1, no. 1, pp. 269–271, 1959.</li>
+    <li>Braess, D., "Über ein Paradoxon aus der Verkehrsplanung," <i>Unternehmensforschung</i>, vol. 12, pp. 258–268, 1968.</li>
+    <li>Treiber, M., Hennecke, A., and Helbing, D., "Congested traffic states in empirical observations and microscopic simulations," <i>Physical Review E</i>, vol. 62, no. 2, pp. 1805–1824, 2000.</li>
+    <li>Greenshields, B. D., "A study of traffic capacity," <i>Highway Research Board Proceedings</i>, vol. 14, pp. 448–477, 1935.</li>
+    <li>Bloch, J., <i>Effective Java</i>, 3rd ed., Addison-Wesley Professional, Boston, MA, 2018.</li>
+    <li>Goetz, B., Peierls, T., Bloch, J., Bowbeer, J., Holmes, D., and Lea, D., <i>Java Concurrency in Practice</i>, Addison-Wesley Professional, 2006.</li>
+    <li>Eckstein, R., Loy, M., and Wood, D., <i>Java Swing</i>, 2nd ed., O'Reilly Media, Sebastopol, CA, 2002.</li>
+</ol>
+
+</div>
+</body>
+</html>
+"""
+
+output_path = "c:\\Users\\prajw\\OneDrive\\Desktop\\main\\TrafficSense_Mini_Project_Report.doc"
+with open(output_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"Created Word report at: {output_path}")

@@ -1,8 +1,23 @@
+# Maven Build Directory
 target/
 *.class
 *.jar
+*.war
+*.ear
+
+# Logs
 *.log
+
+# IDE and Editor Metadata
 .idea/
 *.iml
 .vscode/
+.project
+.classpath
+.settings/
 .DS_Store
+
+# Office / Temporary Files
+~$*
+*.tmp
+*.bak

@@ -319,8 +319,8 @@ This project was developed as an **Object-Oriented Programming with Java** Mini-
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Prajwal-KD/Java-traffic-analyzer-and-route-prediction.git
-cd Java-traffic-analyzer-and-route-prediction
+git clone https://github.com/Prajwal-KD/Traffic-Analyzer.git
+cd Traffic-Analyzer
 ```
 
 ### 2. Compile the Source Code
